@@ -1,0 +1,63 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "EcoChain User profile and stats",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "points": { "type": "number" },
+        "level": { "type": "number" },
+        "streak": { "type": "number" },
+        "totalWasteRecycled": { "type": "number" },
+        "carbonAvoided": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "points"]
+    },
+    "WasteLog": {
+      "title": "Waste Log Entry",
+      "description": "Log of waste identified and disposed",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "category": { "type": "string" },
+        "confidence": { "type": "number" },
+        "disposeMethod": { "type": "string" },
+        "pointsEarned": { "type": "number" },
+        "imageUrl": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "status": { "type": "string", "enum": ["identified", "pending_verification", "disposed"] }
+      },
+      "required": ["userId", "category", "timestamp"]
+    },
+    "Leaderboard": {
+      "title": "Leaderboard Ranking",
+      "description": "Aggregated stats for areas/groups",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "type": { "type": "string", "enum": ["college", "apartment", "village", "city"] },
+        "score": { "type": "number" },
+        "membersCount": { "type": "number" }
+      }
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Stores individual user records"
+    },
+    "/waste_logs/{logId}": {
+      "schema": "WasteLog",
+      "description": "Stores waste classification history"
+    },
+    "/leaderboards/{boardId}": {
+      "schema": "Leaderboard",
+      "description": "Stores community rankings"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 antialiased;
+    font-feature-settings: 'ss01' on, 'ss02' on, 'cv01' on, 'cv03' on;
+  }
+
+  .italic-serif {
+    @apply font-serif italic;
+  }
+}
+
+@layer components {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Bento Grid Utility */
+  .bento-card {
+    @apply bg-slate-900 border border-slate-800 rounded-[2rem] shadow-xl transition-all duration-300;
+  }
+  
+  .bento-highlight {
+    @apply bg-emerald-500 rounded-[2rem] p-6 shadow-lg shadow-emerald-500/20 text-slate-950;
+  }
+}

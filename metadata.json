@@ -1,0 +1,6 @@
+{
+  "name": "EcoChain",
+  "description": "AI-powered smart waste management platform for identifying waste, finding recycling centers, and earning eco-rewards.",
+  "requestFramePermissions": ["camera", "geolocation"],
+  "majorCapabilities": ["AI Waste Classification", "Nearby Recycling Maps", "Impact Dashboard", "Gamified Rewards"]
+}
